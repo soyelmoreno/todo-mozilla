@@ -5,6 +5,12 @@
 /.pnp
 .pnp.js
 
+# from setup-dev.md
+.cache/
+dist/
+.vscode/
+.env
+
 # testing
 /coverage
 
