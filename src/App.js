@@ -8,8 +8,30 @@ function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
 
   function addTask(name) {
-    const newTask = { id: `todo-${nanoid(5)}`, name: name, completed: false };
+    const newTask = {
+      id: `todo-${nanoid(5)}`,
+      name: name,
+      completed: false,
+    };
     setTasks([...tasks, newTask]);
+  }
+
+  function toggleTaskCompleted(id) {
+    const updatedTasks = tasks.map((task) => {
+      // if this task has the same ID as the edited task
+      if (id === task.id) {
+        // Use object spread to make a new object whole `completed` prop has
+        // been inverted
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  }
+
+  function deleteTask(id) {
+    const remainingTasks = tasks.filter((task) => id !== task.id);
+    setTasks(remainingTasks);
   }
 
   const taskList = tasks.map((task) => (
@@ -18,6 +40,8 @@ function App(props) {
       name={task.name}
       completed={task.completed}
       key={task.id}
+      onToggleTaskCompleted={toggleTaskCompleted}
+      onDeleteTask={deleteTask}
     />
   ));
 
