@@ -34,6 +34,18 @@ function App(props) {
     setTasks(remainingTasks);
   }
 
+  function editTask(id, newName) {
+    console.log(tasks, id, newName);
+    const editedTaskList = tasks.map((task) => {
+      // if this task has the same ID as the edited task
+      if (id === task.id) {
+        return { ...task, name: newName };
+      }
+      return task;
+    });
+    setTasks(editedTaskList);
+  }
+
   const taskList = tasks.map((task) => (
     <Todo
       id={task.id}
@@ -42,6 +54,7 @@ function App(props) {
       key={task.id}
       onToggleTaskCompleted={toggleTaskCompleted}
       onDeleteTask={deleteTask}
+      onEditTask={editTask}
     />
   ));
 
