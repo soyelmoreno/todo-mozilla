@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Todo from "./components/Todo";
 import FilterButton from "./components/FilterButton";
 import Form from "./components/Form";
 import { nanoid } from "nanoid";
+import usePrevious from "./components/usePrevious";
 
 // Each key is the name of a filter, each value is a function that filters
 const FILTER_MAP = {
@@ -45,7 +46,6 @@ function App(props) {
   }
 
   function editTask(id, newName) {
-    console.log(tasks, id, newName);
     const editedTaskList = tasks.map((task) => {
       // if this task has the same ID as the edited task
       if (id === task.id) {
@@ -81,12 +81,23 @@ function App(props) {
 
   const taskNoun = taskList.length !== 1 ? "tasks" : "task";
   const headingText = `${taskList.length} ${taskNoun} remaining`;
+  const listHeadingRef = useRef(null);
+  const prevTaskLength = usePrevious(tasks.length);
+
+  useEffect(() => {
+    if (tasks.length - prevTaskLength === -1) {
+      listHeadingRef.current.focus();
+    }
+  }, [tasks.length, prevTaskLength]);
+
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
       <Form onSubmit={addTask} />
       <div className="filters btn-group stack-exception">{filterList}</div>
-      <h2 id="list-heading">{headingText}</h2>
+      <h2 id="list-heading" tabIndex="-1" ref={listHeadingRef}>
+        {headingText}
+      </h2>
       {/* eslint-disable-next-line */}
       <ul
         role="list"
