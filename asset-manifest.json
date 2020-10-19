@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/todo-mozilla/static/css/main.220fcbac.chunk.css",
+    "main.js": "/todo-mozilla/static/js/main.f516abfa.chunk.js",
+    "main.js.map": "/todo-mozilla/static/js/main.f516abfa.chunk.js.map",
+    "runtime-main.js": "/todo-mozilla/static/js/runtime-main.31d7625b.js",
+    "runtime-main.js.map": "/todo-mozilla/static/js/runtime-main.31d7625b.js.map",
+    "static/js/2.1dffee7c.chunk.js": "/todo-mozilla/static/js/2.1dffee7c.chunk.js",
+    "static/js/2.1dffee7c.chunk.js.map": "/todo-mozilla/static/js/2.1dffee7c.chunk.js.map",
+    "index.html": "/todo-mozilla/index.html",
+    "precache-manifest.882776339138f8cbf14d4dcc9f69ee55.js": "/todo-mozilla/precache-manifest.882776339138f8cbf14d4dcc9f69ee55.js",
+    "service-worker.js": "/todo-mozilla/service-worker.js",
+    "static/css/main.220fcbac.chunk.css.map": "/todo-mozilla/static/css/main.220fcbac.chunk.css.map",
+    "static/js/2.1dffee7c.chunk.js.LICENSE.txt": "/todo-mozilla/static/js/2.1dffee7c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.31d7625b.js",
+    "static/js/2.1dffee7c.chunk.js",
+    "static/css/main.220fcbac.chunk.css",
+    "static/js/main.f516abfa.chunk.js"
+  ]
+}
